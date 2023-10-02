@@ -63,6 +63,10 @@ app.delete("/articles/:articleId", async (req, res) => {
   }
 });
 
+app.get("/showArticles", async (req, res) => {
+  const articles = await Article.find();
+  res.render("articles.ejs", { allArticles: articles });
+});
 // regular end points before using database
 app.get("/", (req, res) => {
   let numbers = "";
